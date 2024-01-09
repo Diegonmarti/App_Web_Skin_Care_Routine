@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- TEXTO -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- PESTAÑA -->
+    <title>Skin Care Routine</title>
+    <link rel="icon" href="Galeria/cara2.png" type="image/x-icon">
+
+    <!-- ESTILO -->
+    <link rel="stylesheet" href="estilo.css">
+
+    <!-- FUENTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,800&family=Poppins&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+
+    <!--=========================================== ILUMINACIONES ==============================================-->
+    <div id="iluminacion-superior"></div>
+    <div id="iluminacion-inferior"></div>
+
+
+
+    <!--============================================== HEADER ==============================================-->
+    <header>
+
+        <!------------------------------------- Flecha arriba ----------------------------------------->
+        <div id="flecha-arriba" onclick="cambioDeSeccion(-1)" onmouseover="posibleClic(), hoverSubirSeccion()"
+            onmouseleave="noPosibleClic(), noHoverSubirSeccion()">
+            <div class="contenedor-barras-flecha-abajo">
+                <div class="mitad-flecha-abajo"></div>
+                <div class="mitad-flecha-abajo"></div>
+            </div>
+            <div class="mensaje-subir">Pulsa para subir</div>
+        </div>
+
+        <div id="enlace-newsletter" class="texto-con-animacion-subrayado" onclick="cambioDeSeccion(2, true)"
+            onmouseover="posibleClic()" onmouseleave="noPosibleClic()"></div>
+    </header>
+
+    <nav id="navicono">
+        <div>
+            <img src="Galeria/cara4.png" id="logoDelNav" />
+        </div>
+    </nav>
+    <nav id="navheader">
+        <div id="menuheader">
+            <nav class="menu">
+                <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+                <label class="menu-open-button" for="menu-open">
+                    <span class="lines line-1"></span>
+                    <span class="lines line-2"></span>
+                    <span class="lines line-3"></span>
+                </label>
+
+ 
+                <a href="pagina.html" class="menu-item lightblue" onclick="abrirVentanaInicio()">
+                    <img src="Galeria/pagina-de-inicio.png" alt="Descripción de la imagen">
+                </a>          
+                <a href="#" class="menu-item lightblue">
+                    <img src="Galeria/grupo.png" alt="Descripción de la imagen">
+                </a>
+                <a href="https://www.garnier.es/skincoach?gad_source=1&gclid=CjwKCAiAnL-sBhBnEiwAJRGigs5I-MAz7uFd9RwsLobAD5IThs1y3ID7zPB8hmjue9Cw-dxX9ZsRmRoCM1EQAvD_BwE" class="menu-item lightblue">
+                    <img src="Galeria/cara-lavada.png" alt="Descripción de la imagen">
+                </a>
+                <a href="#" class="menu-item lightblue">
+                    <img src="Galeria/time-and-calendar.png" alt="Descripción de la imagen">
+                </a>
+                <a href="#" class="menu-item lightblue">
+                    <img src="Galeria/comunicar.png" alt="Descripción de la imagen">
+                </a>
+                
+            </nav>
+        </div>
+    </nav>
+    <!--======================================== VENTANA BIENVENIDA =====================================-->
+    <div id="ventana-inicio" onload="animarTrabajando()">
+        <h1 id="texto-saludo-inicial">SKIN CARE ROUTINE</h1>
+    </div>
+
+
+    <!--========================================== VENTANA CURSOS =========================================-->
+    <div id="ventana-cuidado">
+        <div class="flecha-izquierda" onclick="cambiarVideo(-1)">&lt;</div>
+        <div class="contenedor-curso">
+            <div class="container">
+                <div class="blur-background"></div>
+                <div class="video-container">
+                    <video id="videoPrincipal" width="700" height="300" controls autoplay loop muted>
+                        <source src='Galeria/videoinicio.mp4' , type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="fondo-desenfocado"></div>
+        </div>
+        <div class="flecha-derecha" onclick="cambiarVideo(1)">&gt;</div>
+    </div>
+
+    <!--CAMBIO DE VIDEO EN PAGINA 2 -->
+    <script>
+        var videos = [
+            'Galeria/skincare2.mp4',
+            'Galeria/video.mp4',
+            'Galeria/skincare3.mp4',
+            'Galeria/skincare1.mp4',
+        ];
+
+        var videoIndex = 0; // Índice del video actual
+
+        function cambiarVideo(direccion) {
+            videoIndex += direccion;
+
+            // Asegurar que el índice está en el rango correcto
+            if (videoIndex < 0) {
+                videoIndex = videos.length - 1;
+            } else if (videoIndex >= videos.length) {
+                videoIndex = 0;
+            }
+
+            // Cambiar la fuente del video según el nuevo índice
+            document.getElementById('videoPrincipal').src = videos[videoIndex];
+        }
+    </script>
+
+
+    <!--======================================== VENTANA FORMULARIO =======================================-->
+    <div id="ventana-generador">
+        <div id="contenedor-formulario2">
+            <main class="main flow">
+                <div class="main__cards cards">
+                  <div class="cards__inner">
+                    <div class="cards__card card">
+                      <h2 class="card__heading">Sérum de ojos con Ácido Hialurónico</h2>
+                      <h3 class="card__price">15€</h3>
+                      <ul role="list" class="card__bullets flow">
+                        <li>Se ha elaborado con ácido hialurónico que hidrata intensamente y rellena las líneas alrededor de los ojos.</li>
+                      </ul>
+                      <a href="https://www.druni.es/revitalift-filler-serum-ojos-loreal-paris-serum-anti-edad-contorno?gad_source=1&gclid=CjwKCAiA-vOsBhAAEiwAIWR0TV39iYVoDxDqcRPdCBJsCXOpM3-p7hpIlCgV0bmuVTena-iu4rB_FxoCjTAQAvD_BwE" class="card__cta cta">IR A PÁGINA</a>
+                    </div>
+              
+                    <div class="cards__card card">
+                      <h2 class="card__heading">Limpiador facial y desmaquillante</h2>
+                      <h3 class="card__price">8,99€</h3>
+                      <ul role="list" class="card__bullets flow">
+                        <li>Se trata de un limpiador facial (200 mililitros) elaborado con base de agua en formato gel (sin perfume), con una textura ligera e innovadora que consigue eliminar eficazmente el maquillaje y reducir las impurezas.</li>
+                      </ul>
+                      <a href="https://www.druni.es/hydro-boost-limpiador-gel-agua-neutrogena-oilfree?gad_source=1&gclid=CjwKCAiA-vOsBhAAEiwAIWR0TWp4Bm6Y8SS9Ku7bORQmAnQZ2WonbS9Rrp9tTOY7NJFc-Ffhq5X_IRoCXdwQAvD_BwE" class="card__cta cta">IR A PÁGINA</a>
+                    </div>
+              
+                    <div class="cards__card card">
+                      <h2 class="card__heading">Aceite de ricino orgánico
+                    </h2>
+                      <h3 class="card__price">13,48€</h3>
+                      <ul role="list" class="card__bullets flow">
+                        <li>El aceite de ricino mejora la suavidad y la hidratación de la piel, estimulando la producción de colágeno natural y ayudando a reducir las arrugas, cicatrices y manchas.</li>
+                      </ul>
+                      <a href="https://www.amazon.es/BIONOBLE-Org%C3%A1nico-Prensado-Incluye-Pesta%C3%B1as/dp/B07RCB88TY?th=1&linkCode=ll1&tag=eponsitebelleza140323-21&linkId=b22324b6a420ffe52d0580b20ea6b6a3&language=es_ES&ref_=as_li_ss_tl&asc_campaign=eponsitebelleza140323-21&asc_refurl=https%3A%2F%2Felpais.com%2Fescaparate%2F2023-03-14%2F15-imprescindibles-para-tu-rutina-skin-care.html&asc_source=Google" class="card__cta cta">IR A PÁGINA</a>
+                    </div>
+                  </div>
+                  
+                  <div class="overlay cards__inner"></div>
+                </div>
+              </main>
+        </div>
+    </div>
+
+    <!--======================================== VENTANA REVISTA =====================================-->
+
+    <div id="ventana-revista">
+
+        <div id="contenedor-formulario">
+            <form action="post">
+                <h1>REVISTA SKIN-CARE</h1>
+                <article class="gallery">
+                    <img src="Galeria/1b.png" alt="guitar player at concert" />
+                    <img src="Galeria/3.png" alt="crowd cheering" />
+                    <img src="Galeria/6.png" alt="man with a guitar singing" />
+                    <img src="Galeria/4.png" alt="singer performing" />
+                    <img src="Galeria/5.png" alt="singer fistbumping crowd" />
+                    <img src="Galeria/2.png" alt="duo singing" />
+                    <img src="Galeria/7.png" alt="man with a guitar singing" />
+                    <img src="Galeria/8.png" alt="man with a guitar singing" />
+                  </article>
+            </form>
+        </div>
+    </div>
+
+
+    <!--======================================== VENTANA FINAL =====================================-->
+
+    <div id="ventana-final">
+        <div id="contenedor-formulario">
+            <div id="formulario" class="center-container">
+                <h1>CALCULADORA SKIN-CARE</h1>
+                <img id="foto" src="Galeria/cara.png" alt="" width="480" height="320">
+                <button id="empezarBtn" onclick="empezarFormulario()">EMPEZAR</button>
+                <form id="quizForm" style="display: none;">
+                    <div class="quiz-container">
+                        <div id="question1" class="question">
+                            <p>Pregunta 1: ¿¿Qué tono de joyas te queda mejor: dorado, plateado o bronce?</p>
+                            <div class="answer-options">
+                                <label onclick="selectOption(this)">
+                                    <input type="radio" name="respuesta1" id="answer1" value="paris">
+                                    <span>Dorado</span>
+                                </label>
+                                <label onclick="selectOption(this)">
+                                    <input type="radio" name="respuesta1" id="answer2" value="otra">
+                                    <span>Plateado</span>
+                                </label>
+                                <br>
+                                <label onclick="selectOption(this)">
+                                    <input type="radio" name="respuesta1" id="answer3" value="londres">
+                                    <span>Bronce</span>
+                                </label>
+                            </div>
+                            <button id="botonpreg1" onclick="nextQuestion(1, event)">Siguiente</button>
+                        </div>
+
+
+                        <div id="question2" class="question">
+                            <p>Pregunta 2: ¿Qué tono tienen tus venas en la muñeca?</p>
+                            <div class="answer-options">
+                                <label onclick="selectOption(this)">
+                                    <input type="radio" name="respuesta1" id="answer1" value="paris">
+                                    <span>Verdes</span>
+                                </label>
+                                <label onclick="selectOption(this)">
+                                    <input type="radio" name="respuesta1" id="answer2" value="otra">
+                                    <span>Azules</span>
+                                </label>
+                                <br>
+                            </div>
+                            <button onclick="nextQuestion(2, event)">Siguiente</button>
+                        </div>
+
+
+
+
+
+                        <div id="question3" class="question hidden">
+                            <p>Pregunta 3: ¿Cuantas veces te lavas la cara diariamente?</p>
+                            <div class="radio-group">
+                                <input type="range" class="range-input" min="1" max="3" step="1" value="0"
+                                    oninput="updateSliderValue(this.value)">
+                                <div class="range-label">
+                                    <span id="num1">1</span>
+                                    <span id="num2">2</span>
+                                    <span id="num3">+2</span>
+                                </div>
+                            </div>
+                            <button onclick="nextQuestion(3, event)">Siguiente</button>
+                        </div>
+
+
+
+
+                        <div id="question4" class="question hidden">
+                            <p>Pregunta 4: ¿Usas alguno de estos productos?</p>
+                            <div class="image-container">
+                                <div class="image-option">
+                                    <input type="checkbox" id="product1" class="image-checkbox">
+                                    <label for="product1" class="image-label">
+                                        <img src="Galeria/mascara.jpg" alt="Producto 1">
+                                        <span>Máscara</span>
+                                    </label>
+                                </div>
+                                <div class="image-option">
+                                    <input type="checkbox" id="product2" class="image-checkbox">
+                                    <label for="product2" class="image-label">
+                                        <img src="Galeria/aceite.jpg" alt="Producto 2">
+                                        <span>Aceite</span>
+                                    </label>
+                                </div>
+                                <div class="image-option">
+                                    <input type="checkbox" id="product3" class="image-checkbox">
+                                    <label for="product3" class="image-label">
+                                        <img src="Galeria/jabon.jpg" alt="Producto 3">
+                                        <span>Jabón</span>
+                                    </label>
+                                </div>
+                                <div class="image-option">
+                                    <input type="checkbox" id="product4" class="image-checkbox">
+                                    <label for="product4" class="image-label">
+                                        <img src="Galeria/hidratante.jpg" alt="Producto 4">
+                                        <span>Hidratante</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <button onclick="nextQuestion(4, event)">Aceptar</button>
+                        </div>
+
+
+                        <div id="question5" class="question hidden">
+                            <p>Pregunta 5: ¿Cómo se siente tu piel a lo largo del día?</p>
+                            <div class="answer-options">
+                                <label onclick="selectOption(this)">
+                                    <input type="radio" name="respuesta1" id="answer1" value="paris">
+                                    <span>Brillante</span>
+                                </label>
+                                <label onclick="selectOption(this)">
+                                    <input type="radio" name="respuesta1" id="answer2" value="otra">
+                                    <span>Seca y Tirante</span>
+                                </label>
+                                <label onclick="selectOption(this)">
+                                    <input type="radio" name="respuesta1" id="answer3" value="otra">
+                                    <span>Seca y Brillante</span>
+                                </label>
+                                <label onclick="selectOption(this)">
+                                    <input type="radio" name="respuesta1" id="answer4" value="otra">
+                                    <span>Equilibrada</span>
+                                </label>
+                            </div>
+                            <button onclick="nextQuestion(5, event)">Terminar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="tabla" class="question hidden">
+        <table>
+            <tr>
+                <th>Paso</th>
+                <th>Descripción</th>
+                <th>Imágenes</th>
+            </tr>
+            <tr>
+                <td>1. Limpieza</td>
+                <td>Utiliza un limpiador suave para eliminar maquillaje, exceso de aceite e impurezas. Limpia dos veces al día.</td>
+                <td><img src="Galeria/limpieza.jpg" alt="Limpiador" style="width: 100px; height: 120px;"></td>
+            </tr>
+            <tr>
+                <td>2. Exfoliación</td>
+                <td>Aplica un exfoliante suave una o dos veces por semana para mejorar la textura de la piel y estimular la renovación celular.</td>
+                <td><img src="Galeria/exfoliacion.jpg" alt="Exfoliación" style="width: 100px; height: 100px;"></td>
+            </tr>
+            <tr>
+                <td>3. Tónico</td>
+                <td>Aplica un tónico sin alcohol para equilibrar el pH de la piel y prepararla para los siguientes pasos.</td>
+                <td><img src="Galeria/tonico.jpg" alt="Tónico" style="width: 100px; height: 100px;"></td>
+            </tr>
+            <tr>
+                <td>4. Sérum</td>
+                <td>Utiliza un suero concentrado para abordar problemas específicos de la piel, como manchas oscuras o arrugas. Aplica antes de la crema hidratante.</td>
+                <td><img src="Galeria/serum.jpg" alt="Sérum" style="width: 100px; height: 100px;"></td>
+            </tr>
+            <tr>
+                <td>5. Crema Hidratante</td>
+                <td>Usa una crema hidratante adecuada para tu tipo de piel para mantenerla suave y flexible.</td>
+                <td><img src="Galeria/crema.jpg" alt="Crema Hidratante" style="width: 100px; height: 100px;"></td>
+            </tr>
+            <tr>
+                <td>6. Protección Solar</td>
+                <td>Aplica protector solar con FPS 30 o más para prevenir el envejecimiento prematuro y reducir el riesgo de cáncer de piel.</td>
+                <td><img src="Galeria/solar.jpg" alt="Protección Solar" style="width: 100px; height: 100px;"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <!--============================================== FOOTER ==============================================-->
+    <footer>
+        <!------------------------------------- Flecha abajo ----------------------------------------->
+        <div id="flecha-abajo" onclick="cambioDeSeccion(1)" onmouseover="posibleClic(), hoverBajarSeccion()"
+            onmouseleave="noPosibleClic(), noHoverBajarSeccion()">
+            <div class="mensaje-subir">Pulsa para bajar</div>
+
+            <div class="contenedor-barras-flecha-abajo">
+                <div class="mitad-flecha-abajo"></div>
+                <div class="mitad-flecha-abajo"></div>
+            </div>
+
+        </div>
+    </footer>
+    <!--============================================== CURSOR ==============================================-->
+    <div class='cursor' id="cursor"></div>
+    <div class='cursor2' id="cursor2"></div>
+    <div class='cursor3' id="cursor3"></div>
+
+
+    <!--====================================== CONTROLADOR ANIMACIONES =======================================-->
+    <script src="codigo.js"></script>
+
+</body>
+
+</html>
